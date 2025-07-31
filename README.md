@@ -48,6 +48,17 @@ spark.conf.set("fs.azure.account.oauth2.client.endpoint.{storage}.dfs.core.windo
 ## Data Pipeline
 
 ### Data Factory Configuration
+
+## 🔁 Pipeline Flow (Visuals)
+
+### 🔹 ForEach Activity
+
+![ForEach Activity](https://raw.githubusercontent.com/kotauday2110/AZURE_NYCTAXI_PROJECT/main/ForEach.png)
+
+### 🔹 If Condition Activity
+
+![If Condition](https://raw.githubusercontent.com/kotauday2110/AZURE_NYCTAXI_PROJECT/main/Ifcondition.png)
+
 **Conditional Logic for File Patterns**:
 - Files 01-09: `trip-data/green_tripdata_2023-0@{dataset().u_month}.parquet`
 - Files 10-12: `trip-data/green_tripdata_2023-@{dataset().u_monthgreater9}.parquet`
@@ -134,13 +145,6 @@ FROM gold.trip_zone tz
 JOIN gold.trip_trip tt ON tz.LocationID = tt.PULocationID
 GROUP BY Borough
 ```
-
-## Monitoring & Troubleshooting
-
-- **Data Factory**: Monitor pipeline execution and failures
-- **Databricks**: Check job logs and cluster metrics
-- **Delta Lake**: Use `DESCRIBE HISTORY` for version tracking
-- **Common Issues**: Authentication errors, schema mismatches, performance bottlenecks
 
 ## Project Structure
 
